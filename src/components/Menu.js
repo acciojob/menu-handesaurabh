@@ -7,7 +7,7 @@ const Menu = ({ items }) => {
                 const { id, title, img, desc, price, category } = menuItem;
 
                 return (
-                  <article 
+                <article 
     key={id} 
     className="menu-item" 
     data-test-id={`menu-item-${category}-${id}`}
