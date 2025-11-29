@@ -1,30 +1,31 @@
-import React from "react"
+import React from "react";
 
 const Menu = ({ items }) => {
-    return (
-        <div className="section-center">
-            {items.map((menuItem) => {
-                const { id, title, img, desc, price, category } = menuItem;
+  return (
+    <div className="section-center">
+      {items.map((menuItem) => {
+        const { id, title, img, desc, price, category } = menuItem;
 
-                return (
-                <article 
-    key={id} 
-    className="menu-item" 
-    data-test-id={`menu-item-${category}-${id}`}
->
-    <img src={img} alt={title} className="photo" />
-    <div className="item-info">
-        <header>
-            <h4>{title}</h4>
-            <h4 className="price">$ {price}</h4>
-        </header>
-        <p className="item-text">{desc}</p>
+        return (
+          <article
+            key={id}
+            className="menu-item"
+            data-test-id={`menu-item-${category}-${id}`} // unique per item
+            data-category={category} // easier for Cypress filtering
+          >
+            <img src={img} alt={title} className="photo" />
+            <div className="item-info">
+              <header>
+                <h4>{title}</h4>
+                <h4 className="price">$ {price}</h4>
+              </header>
+              <p className="item-text">{desc}</p>
+            </div>
+          </article>
+        );
+      })}
     </div>
-</article>
-                );
-            })}
-        </div>
-    );
+  );
 };
 
 export default Menu;
