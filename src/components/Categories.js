@@ -7,9 +7,10 @@ const Categories = ({ categories, filterItems }) => {
         <button
           type="button"
           key={index}
+          id={`filter-btn-${index}`}         // <-- ID added for Cypress
           className="filter-btn"
           onClick={() => filterItems(category)}
-          data-test-id={`filter-btn-${category}`} // Cypress selector
+          data-test-id={`filter-btn-${category}`} // optional, still keep data-test-id
         >
           {category}
         </button>
